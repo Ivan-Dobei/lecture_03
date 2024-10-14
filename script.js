@@ -1,3 +1,59 @@
+//task 1
+
+class Transport {
+    ride() {
+        console.log('Transport is moving');
+    }
+
+    stop() {
+        console.log('Transport has stopped');
+    }
+}
+
+class Car extends Transport {
+    ride() {
+        console.log('Car is driving');
+    }
+
+    stop() {
+        console.log('Car has stopped');
+    }
+}
+
+class Bike extends Transport {
+    ride() {
+        console.log('Bike is cycling');
+    }
+
+    stop() {
+        console.log('Bike has stopped.');
+    }
+}
+
+class TransportFactory {
+    static createTransport(type) {
+        switch(type) {
+            case 'car':
+                return new Car();
+            case 'bike':
+                return new Bike();
+            default:
+                throw new Error('Unknown type of transport');
+        }
+    }
+
+}
+
+const car = TransportFactory.createTransport('car');
+car.ride();
+car.stop();
+
+const bike = TransportFactory.createTransport('bike');
+bike.ride();
+bike.stop();
+
+//task 2
+
 const characterList = document.querySelector(".character_list");
 const loadingTitle = document.querySelector('.loading_text');
 const previousBtn = document.querySelector(".previous_button");
